@@ -1,0 +1,23 @@
+
+ // Finally, register user if there are no errors in the form
+    $password = md5($password_1);//encrypt the password before saving in the database
+$sql1="INSERT INTO users (fullname, username, email, dob, county, password ) VALUES('$fullname','$username', '$email', '$dob', '$county','$password')";
+$result1=mysqli_query($con,$sql1);
+$_SESSION['username'] = $username;
+$_SESSION['success'] = "You are now logged in";
+header('location: ../main.php');} 
+ }
+
+
+ 
+ 
+ 
+ $fullname = $_POST['fullname'];  
+    $username = $_POST['username'];  
+     $email = $_POST['email'];  
+    $dob = $_POST['dob'];  
+    $county = $_POST['county'];
+    $password_1 = $_POST['password_1'];  
+    $password_2 = $_POST['password_2'];  
+
+   
