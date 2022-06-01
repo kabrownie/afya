@@ -34,9 +34,7 @@
 <!----->
 <?php
   session_start();
-
-
-?>
+   include('includes/conn.php') ?>
 
     
 <!----->
@@ -58,13 +56,24 @@
 
    <div class="left">
         <h3>profile Details</h3>
-       <!-- logged in user information -->
-      <?php  if (isset($_SESSION['username'])) : ?>
-   USERNAME = <?php echo $_SESSION['username']; ?><br>
-   
-   EMAIL = <?php echo $_SESSION['email']; ?>
-   
-    <?php endif ?>
+        <?php
+
+$sql = "SELECT * FROM users  ";
+
+$result = $db->query($sql);
+
+$db->close();
+
+      // LOOP TILL END OF DATA
+                while($rows=$result->fetch_assoc())
+                {
+             ?>
+             <?php echo $rows['email'];?>
+
+            <?php
+                }
+             ?>
+
 
 
 

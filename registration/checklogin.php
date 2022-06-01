@@ -25,11 +25,15 @@ if (isset($_POST['login_user'])) {
     if (count($errors) == 0) {
     $password = md5($password);
     $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-    $results = mysqli_query($db, $query);
-    if (mysqli_num_rows($results) == 1) {
 
+
+    $result=mysqli_query($db,$query);
+    $row=mysqli_fetch_array($result);
+    $active=$row['active'];
+    $count=mysqli_num_rows($result);
+    if($count==1) {
+     $_SESSION['login_user']=$username;
    
-   $_SESSION['username'] = $username;
    
       $_SESSION['success'] = "You are now logged in";
       header('location: success.php');

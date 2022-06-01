@@ -65,14 +65,7 @@ $password = md5($password_1);//encrypt the password before saving in the databas
 $query ="INSERT INTO users (fullname, username, email, dob, county, password )
  VALUES('$fullname','$username', '$email', '$dob', '$county','$password')";
    mysqli_query($db, $query);
-
-   $_SESSION['fullname'] = $fullname;
-      $_SESSION['username'] = $username;
-      $_SESSION['email'] = $email;
-
-      $_SESSION['dob'] = $dob;
-      $_SESSION['county'] = $county;
-      $_SESSION['password'] = $password;
+      $_SESSION['login_user'] = $username;
       
       $_SESSION['success'] = "You are now logged in";
 header('location: success.php');}

@@ -205,6 +205,19 @@ footer {
                 border: none;
                 border-radius: 5px;
                 }
+
+                .btn-county {
+                    padding: 10px;
+                    padding-left: 25px;
+                    padding-right: 25px;
+                    font-size: 15px;
+    box-shadow: 0 0 10px #000000;
+                    
+                    color: rgb(0, 0, 0);
+                    background: #ffffff;
+                    border: none;
+                    border-radius: 5px;
+                    }
                 
 
   /* select */

@@ -50,6 +50,7 @@
     <strong><?php echo $_SESSION['username']; ?></strong></p>
     <strong><?php echo $_SESSION['password']; ?></strong></p>
     <?php endif ?>
+    
     <p>One point of blood can save Three live</p>
    <div>
         <h3>
