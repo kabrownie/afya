@@ -26,7 +26,15 @@ if (isset($_POST['login_user'])) {
     $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
     $results = mysqli_query($db, $query);
     if (mysqli_num_rows($results) == 1) {
-      $_SESSION['username'] = $username;
+
+   $_SESSION['fullname'] = $fullname;
+   $_SESSION['username'] = $username;
+   $_SESSION['email'] = $email;
+
+   $_SESSION['dob'] = $dob;
+   $_SESSION['county'] = $county;
+   $_SESSION['password'] = $password;
+   
       $_SESSION['success'] = "You are now logged in";
       header('location: success.php');
     }else {
