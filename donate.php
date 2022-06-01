@@ -30,6 +30,9 @@
 
 <!----->
 <!----->
+
+<?php include('includes/mininav.php') ?>
+
 <?php
   session_start();
 

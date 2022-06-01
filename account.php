@@ -30,6 +30,7 @@
 <?php include('includes/mininav.php') ?>
 
 
+
 <!----->
 <!----->
 <?php
@@ -57,8 +58,8 @@
    <div class="left">
         <h3>profile Details</h3>
         <?php
-
-$sql = "SELECT * FROM users  ";
+$id =  $_SESSION['username'];
+$sql = "SELECT * FROM users WHERE username='$id'";
 
 $result = $db->query($sql);
 
@@ -68,7 +69,22 @@ $db->close();
                 while($rows=$result->fetch_assoc())
                 {
              ?>
-             <?php echo $rows['email'];?>
+            <p> <strong>Full name : </strong><?php echo $rows['fullname'];?><br></p>
+          <p>   <strong>Username : </strong><?php echo $rows['username'];?><br></p>
+          <p>   <strong>email : </strong><?php echo $rows['email'];?><br></p>
+          <p>   <strong>date of birth : </strong><?php echo $rows['dob'];?><br></p>
+
+          <p>   <strong>County : </strong><?php echo $rows['county'];?><br></p>
+          <p>   <strong>bloodtype : </strong><?php echo $rows['bloodtype'];?><br></p>
+          <p>   <strong>weight : </strong><?php echo $rows['weight'];?><br></p>
+          <p>   <strong>height: </strong><?php echo $rows['height'];?><br></p>
+
+
+
+
+
+
+
 
             <?php
                 }
