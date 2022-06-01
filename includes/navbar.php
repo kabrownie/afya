@@ -11,7 +11,7 @@
   <li><a href="#why">Why donate</a></li>
   <li><a href="#who">Who can donate</a></li>
   <li><a href="#about">About us</a></li>
-  <li><a href="../registration/presignup.php" >Sign Up</a></li>
+  <li><a href="../registration/login.php" >Sign In</a></li>
 
  
 
