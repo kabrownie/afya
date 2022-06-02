@@ -8,7 +8,6 @@ $email    = "";
 $errors = array();    
     include('../includes/conn.php');  
     
-    include('checkregister.php');
 // LOGIN USER
 if (isset($_POST['login_user'])) {
     $username = mysqli_real_escape_string($db, $_POST['username']);

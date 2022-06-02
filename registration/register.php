@@ -17,8 +17,7 @@
         <div class="content">
     
 <h2>Register</h2>
-<?php
-?>
+
 
 <form method="post" action="register.php">
 <?php include('../includes/errors.php') ?>
