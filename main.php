@@ -47,7 +47,7 @@
        <!-- logged in user information -->
       <?php  if (isset($_SESSION['username'])) : ?>
     <p><img class="profile" src= "/image/drop.png" ><br>
-    <strong><?php echo $_SESSION['username']; ?></strong></p>
+    <strong>Welcome  <?php echo $_SESSION['username']; ?></strong></p>
     <strong><?php echo $_SESSION['password']; ?></strong></p>
     <?php endif ?>
     

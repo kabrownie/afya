@@ -32,7 +32,7 @@ if (isset($_POST['login_user'])) {
     $active=$row['active'];
     $count=mysqli_num_rows($result);
     if($count==1) {
-     $_SESSION['login_user']=$username;
+     $_SESSION['username']=$username;
    
    
       $_SESSION['success'] = "You are now logged in";
