@@ -41,7 +41,7 @@
 <!----->
 <div class="user">
 
-<div class="left">
+<div class="left" style=" margin-left:30%; margin-right:30%">
         <h3>profile</h3>
        <!-- logged in user information -->
       <?php  if (isset($_SESSION['username'])) : ?>
@@ -79,9 +79,15 @@ $db->close();
           <p>   <strong>height: </strong><?php echo $rows['height'];?><br></p>
 
 
+<br>
+<br>
+<br>
+<br>
 
 
 
+
+          <div class = bodylink><a href="update.php" >Edit Profile</a></div>
 
 
 
@@ -89,97 +95,6 @@ $db->close();
                 }
              ?>
 
-<?php  
-// update
-session_start();
-// initializing variables
-$username = "";
-$email    = "";
-$errors = array();
-
-    include('../includes/conn.php'); 
-  
-
-    if (isset($_POST['update'])) {
- $fullname =  mysqli_real_escape_string($db,$_POST['fullname']);  
- $username =  mysqli_real_escape_string($db, $_POST['username']);  
-  $email =  mysqli_real_escape_string($db,$_POST['email']);  
- $county =  mysqli_real_escape_string($db,$_POST['county']);
- $password_1 =  mysqli_real_escape_string($db, $_POST['password_1']);  
- $password_2 = mysqli_real_escape_string($db, $_POST['password_2']); 
- $password_3 = mysqli_real_escape_string($db, $_POST['password_3']); 
-
-
- 
-$id =  $_SESSION['username'];
-$select = "SELECT * FROM users WHERE username='$id'";   
-$sql1 = mysqli_query($db, $select);  
-
-      $_SESSION['success'] = "You are now logged in";
-header('location: success.php');}
-
-       
-
-    
-    // ...
-?>
-
-</div>
-<!-- update -->
-
-
-  <div class="left">
-  <h2>Update Account</h2>
-<form method="post" action="register.php">  
-<?php include('../includes/errors.php') ?>
-<div class="input-group">
-
-<label>Full names</label>
-<input type="text" name="fullname" >
-<div class="input-group">
-
-<div class="input-group">
-<label>User name</label>
-<input type="text" name="username" value="<?php echo $username; ?>">
-</div>
-
-<div class="input-group">
-<label>Email</label>
-<input type="email" name="email" value="<?php echo $email; ?>">
-</div>
-
-
-<p> Select the county you reside in</p>
-<label>county</label>
-
-<select name="county" class="county">  
-<option value=""></option>
-  <option value="Nyeri"> Nyeri</option>
-  <option value="Kiambu ">Kiambu</option>
-  <option value="Kirinyaga">Kirinyaga</option>
-  <option value=" Muran'ga">Muran'ga</option>
-  <option value="Nyandarua"> Nyandarua</option>
-
-
-</select>
-<div class="input-group">
-<label>Old password</label>
-<input type="password" name="password_2">
-</div>
-<div class="input-group">
-<label> New Password</label>
-<input type="password" name="password_1">
-</div>
-<div class="input-group">
-<label>Confirm new password</label>
-<input type="password" name="password_2">
-</div>
-
-<div class="input-group">
-<button type="submit" class="btn" name="update">Update</button>
-</div>
-</form>
-</div>
 </div>
 </div>
 </div>

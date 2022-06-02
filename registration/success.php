@@ -9,7 +9,7 @@
 </head>
 
         
-<?php include('../includes/navbar.php') ?>
+
 
 <!-- notification message -->
   <?php if (isset($_SESSION['success'])) : ?>
@@ -21,10 +21,12 @@
         
           unset($_SESSION['success']);
           
+
+
           ?>
       </h3>
       </div>
   <?php endif ?>
-
+  <?php include('../main.php') ?>
     <?php
-header( "refresh:3;url=../main.php" ); ?>
+header( "refresh:2;url=../main.php" ); ?>

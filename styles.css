@@ -89,7 +89,7 @@
    
 .bodylink a{
     background-color:red;
-    padding: 4px;
+    padding: 10px;
     color:wheat;
     text-decoration: none;
     border-radius: 5px 5px 5px 5px;
@@ -98,8 +98,6 @@
 
 }
 .bodylink a:hover {
-    background-color:rgb(255, 91, 118);
-    padding: 4px;
     color:rgb(255, 255, 255);
     text-decoration: none;
     border-radius: 5px 5px 5px 5px;
