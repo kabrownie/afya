@@ -32,6 +32,8 @@
 <!----->
 
 <?php include('includes/mininav.php') ?>
+<?php include('includes/conn.php') ?>
+
 
 <?php
   session_start();
@@ -50,23 +52,81 @@
        <!-- logged in user information -->
       <?php  if (isset($_SESSION['username'])) : ?>
     <p><img class="profile" src= "/image/drop.png" ><br>
-    <strong><?php echo $_SESSION['username']; ?></strong></p>
+    <strong>Hello  <?php echo $_SESSION['username']; ?></strong></p>
     <?php endif ?>
     <p>One point of blood can save Three live</p>
      <div>
-        <h3>
-            Donor Centers
-        </h3>
-        <input type="radio" name="county"value="Kirinyaga"  > Kirinyaga</radio><br>
+        <?php
+$id =  $_SESSION['username'];
+$sql = "SELECT * FROM users WHERE username='$id'";
+
+$result = $db->query($sql);
+
+$db->close();
+
+      // LOOP TILL END OF DATA
+                while($rows=$result->fetch_assoc())
+                {?>
+                <p>Find Donation centers near you :) </p>
+
+
+<p>  Click your county <br>You currently stay at County : <strong> <?php echo $rows['county'];?><br ></strong></p>
+                  <?php
+                }
+             ?>
+
+
+
+<div class = bodylink style="min-width:200px; min-height:50px; margin: 5px;"><a href="Nyeri.php" >Nyeri</a></div>
+<div class = bodylink style="min-width:200px; min-height:50px; margin: 5px;"><a href="Kirinyaga.php" >Kirinyaga</a></div>
+<div class = bodylink style="min-width:200px; min-height:50px; margin: 5px;"><a href="Kiambu.php" >Kiambu</a></div>
+<div class = bodylink style="min-width:200px; min-height:50px; margin: 5px;"><a href="Nyandarua.php" >Nyandarua</a></div>
+<div class = bodylink style="min-width:200px; min-height:50px; margin: 5px;"><a href="Muranga.php" >Muranga</a></div>
+
+
+
+
+
+
+
+<!-- 
+
+
+        <input type="ra" name="county"value="Kirinyaga"  > Kirinyaga</radio><br>
         <input type="radio" name="county"value="Nyeri"  > Nyeri</radio><br>
         <input type="radio" name="county"value="Kiambu"  > Kiambu</radio><br>
         <input type="radio" name="county"value="Nyandarua"  > Nyandarua</radio><br>
-        <input type="radio" name="county"value="Murang'a"  > Murang'a</radio><br>
+        <input type="radio" name="county"value="Murang'a"  > Murang'a</radio><br> -->
+
       </div>
    </div>
 
 
-   <div class="right"> 
+   <div class="left"> 
+
+   <h3>
+            Donor Centers
+        </h3>
+
+        $sql = "SELECT * FROM users WHERE username='$id'";
+
+$result = $db->query($sql);
+
+$db->close();
+
+      // LOOP TILL END OF DATA
+                while($rows=$result->fetch_assoc())
+                {?>
+                <p>Find Donation centers near you :) </p>
+
+
+<p>  Click your county <br>You currently stay at County : <strong> <?php echo $rows['county'];?><br ></strong></p>
+                  <?php
+                }
+             ?>
+
+
+
       <div class="hospitals"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure vitae quia quos quidem? Expedita eaque, vero a similique voluptas tenetur id reprehenderit! Alias magnam soluta at laborum nulla? Eos, odit.</div>
       <div class="hospitals"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure vitae quia quos quidem? Expedita eaque, vero a similique voluptas tenetur id reprehenderit! Alias magnam soluta at laborum nulla? Eos, odit.</div>
       <div class="hospitals"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure vitae quia quos quidem? Expedita eaque, vero a similique voluptas tenetur id reprehenderit! Alias magnam soluta at laborum nulla? Eos, odit.</div>

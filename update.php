@@ -1,3 +1,5 @@
+
+<?php include('checkupdate.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,22 +37,22 @@
 
   <div class="content">
   <h2>Update Account</h2>
-<form method="post" action="account.php">  
+<form method="post" action="update.php">  
 <?php include('../includes/errors.php') ?>
 <div class="input-group">
 
 <label>Full names</label>
-<input type="text" name="fullname" >
+<input type="text" name="fullname1" >
 <div class="input-group">
 
 <div class="input-group">
 <label>User name</label>
-<input type="text" name="username" value="<?php echo $username; ?>">
+<input type="text" name="username1" value="<?php echo $username1; ?>">
 </div>
 
 <div class="input-group">
 <label>Email</label>
-<input type="email" name="email" value="<?php echo $email; ?>">
+<input type="email" name="email1" value="<?php echo $email1; ?>">
 </div>
 
 
@@ -82,7 +84,7 @@
 </div> -->
 
 <div class="input-group">
-<button type="submit" class="btn" name="update">Update</button>
+<button type="submit" class="btn" name="edit">Update</button>
 </div>
 </form>
 </div>
@@ -104,42 +106,3 @@
 </html>
 
 
-
-<?php  
-// update
-session_start();
-// initializing variables
-$username = "";
-$email    = "";
-$errors = array();
-
-$id =  $_SESSION['username'];
-
-    include('../includes/conn.php'); 
-  
-
-    if (isset($_POST['update'])) {
- $fullname =  mysqli_real_escape_string($db,$_POST['fullname']);  
- $username =  mysqli_real_escape_string($db, $_POST['username']);  
-  $email =  mysqli_real_escape_string($db,$_POST['email']);  
- $county =  mysqli_real_escape_string($db,$_POST['county']);
- $password_1 =  mysqli_real_escape_string($db, $_POST['password_1']);  
- $password_2 = mysqli_real_escape_string($db, $_POST['password_2']); 
- $password_3 = mysqli_real_escape_string($db, $_POST['password_3']); 
-
- $sql1 = "UPDATE users SET fullname='$fullname' WHERE username='$id'";
-
- if($db->query($sql1)===TRUE
- ){
-
-
-    $_SESSION['username']=$username;
-               $_SESSION['success'] = "profile updated";
-header('location: account.php');}
-        
- }
-       
-
-    
-    // ...
-?>
