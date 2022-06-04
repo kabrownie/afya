@@ -83,7 +83,7 @@
   
     <div class="right"> 
       <div> 
-        <a href="donate.php">
+        <a href="donate/donate.php" class="">
             <img src="image/donate.png"  height="150px"><br>
             Donate now</a>
        

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <title>Afya Blood Donation</title>
 </head>
 <body>
@@ -31,8 +31,8 @@
 <!----->
 <!----->
 
-<?php include('includes/mininav.php') ?>
-<?php include('includes/conn.php') ?>
+<?php include('../includes/mininav.php') ?>
+<?php include('../includes/conn.php') ?>
 
 
 <?php
@@ -62,15 +62,15 @@ $sql = "SELECT * FROM users WHERE username='$id'";
 
 $result = $db->query($sql);
 
-$db->close();
+
 
       // LOOP TILL END OF DATA
-                while($rows=$result->fetch_assoc())
+                while($row=$result->fetch_assoc())
                 {?>
                 <p>Find Donation centers near you :) </p>
 
 
-<p>  Click your county <br>You currently stay at County : <strong> <?php echo $rows['county'];?><br ></strong></p>
+<p>  Click your county <br>You currently stay at County : <strong> <?php echo $row['county'];?><br ></strong></p>
                   <?php
                 }
              ?>
@@ -89,15 +89,6 @@ $db->close();
 
 
 
-<!-- 
-
-
-        <input type="ra" name="county"value="Kirinyaga"  > Kirinyaga</radio><br>
-        <input type="radio" name="county"value="Nyeri"  > Nyeri</radio><br>
-        <input type="radio" name="county"value="Kiambu"  > Kiambu</radio><br>
-        <input type="radio" name="county"value="Nyandarua"  > Nyandarua</radio><br>
-        <input type="radio" name="county"value="Murang'a"  > Murang'a</radio><br> -->
-
       </div>
    </div>
 
@@ -108,35 +99,42 @@ $db->close();
             Donor Centers
         </h3>
 
-        $sql = "SELECT * FROM users WHERE username='$id'";
+        <?php
+$sql = "SELECT * FROM Hospitals WHERE countyId = 'A'";
 
 $result = $db->query($sql);
 
-$db->close();
+
 
       // LOOP TILL END OF DATA
                 while($rows=$result->fetch_assoc())
-                {?>
-                <p>Find Donation centers near you :) </p>
+                {
+             ?>
+                
+
+               
 
 
-<p>  Click your county <br>You currently stay at County : <strong> <?php echo $rows['county'];?><br ></strong></p>
-                  <?php
+
+      <div class="hospitals"><a href='#'>  <p> <strong> <?php echo $rows['HospitalName']; ?></strong><br></p> </a>
+      <?php echo $rows['address']; ?><br>
+     TEL: 0<?php echo $rows['phone']; ?><br>
+
+
+    </div><hr>
+            <?php 
                 }
              ?>
 
 
+    
 
-      <div class="hospitals"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure vitae quia quos quidem? Expedita eaque, vero a similique voluptas tenetur id reprehenderit! Alias magnam soluta at laborum nulla? Eos, odit.</div>
-      <div class="hospitals"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure vitae quia quos quidem? Expedita eaque, vero a similique voluptas tenetur id reprehenderit! Alias magnam soluta at laborum nulla? Eos, odit.</div>
-      <div class="hospitals"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure vitae quia quos quidem? Expedita eaque, vero a similique voluptas tenetur id reprehenderit! Alias magnam soluta at laborum nulla? Eos, odit.</div>
-      <div class="hospitals"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure vitae quia quos quidem? Expedita eaque, vero a similique voluptas tenetur id reprehenderit! Alias magnam soluta at laborum nulla? Eos, odit.</div>
-      <div class="hospitals"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure vitae quia quos quidem? Expedita eaque, vero a similique voluptas tenetur id reprehenderit! Alias magnam soluta at laborum nulla? Eos, odit.</div>
+    
 </div>
 </div>
   
 
 <iframe src="https://www.google.com/maps/d/embed?mid=1euE8PzconXhsr0x9IgpnLgqruP9jSNg&ehbc=2E312F" width="100%" height="480"></iframe>
-<?php include('includes/footer.php') ?>
+<?php include('../includes/footer.php') ?>
 </body>
 </html>
