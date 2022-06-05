@@ -100,7 +100,7 @@ $result = $db->query($sql);
         </h3>
 
         <?php
-$sql = "SELECT * FROM Hospitals WHERE countyId = 'C'";
+$sql = "SELECT * FROM Hospitals WHERE countyId = 'D'";
 
 $result = $db->query($sql);
 

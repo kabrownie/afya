@@ -15,6 +15,8 @@ $errors = array();
   $email =  mysqli_real_escape_string($db,$_POST['email']);  
  $dob =  mysqli_real_escape_string($db,$_POST['dob']);  
  $county =  mysqli_real_escape_string($db,$_POST['county']);
+ $gender =  mysqli_real_escape_string($db,$_POST['gender']);
+
  $password_1 =  mysqli_real_escape_string($db, $_POST['password_1']);  
  $password_2 = mysqli_real_escape_string($db, $_POST['password_2']); 
 
@@ -33,7 +35,10 @@ $errors = array();
  //check age
       else if($myage < 16 || $myage >65 ) { array_push($errors, " According to your date of birth , You are not eligible to donate. Sorry  "); }
       
-      if (empty($username)) { array_push($errors, "Please enter your county"); }
+      if (empty($county)) { array_push($errors, "Please enter your county"); }
+      if (empty($gender)) { array_push($errors, "Please enter your gender"); }
+
+
 
       if (empty($password_1)) { array_push($errors, "Password is required"); }
       if ($password_1 != $password_2) {
@@ -62,8 +67,8 @@ $errors = array();
        if (count($errors) == 0) {
 
 $password = md5($password_1);//encrypt the password before saving in the database
-$query ="INSERT INTO users (fullname, username, email, dob, county, password )
- VALUES('$fullname','$username', '$email', '$dob', '$county','$password')";
+$query ="INSERT INTO users (fullname, username, email, dob, county,gender, password )
+ VALUES('$fullname','$username', '$email', '$dob', '$county','$gender','$password')";
    mysqli_query($db, $query);
       $_SESSION['username'] = $username;
       

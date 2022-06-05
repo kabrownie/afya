@@ -15,6 +15,7 @@
 
     
         <div class="content">
+<star style="color:red" > * </star> required
     
 <h2>Register</h2>
 
@@ -23,26 +24,25 @@
 <?php include('../includes/errors.php') ?>
 <div class="input-group">
 
-<label>Full names</label>
+<label>Full names  <star style="color:red" > * </star></label>
 <input type="text" name="fullname" >
 <div class="input-group">
-
+<hr>
 <div class="input-group">
-<label>User name</label>
+<label>User name <star style="color:red" > * </star></label>
 <input type="text" name="username" value="<?php echo $username; ?>">
 </div>
-
+<hr>
 <div class="input-group">
-<label>Email</label>
+<label>Email <star style="color:red" > * </star></label>
 <input type="email" name="email" value="<?php echo $email; ?>">
 </div>
-
-<label>Date Of Birth</label>
+<hr>
+<label>Date Of Birth <star style="color:red" > * </star></label>
 <input type="date" name="dob" >
-</div>
+</div><hr>
 <p> Select the county you reside in</p>
-<label>county</label>
-
+<label>county <star style="color:red" > * </star></label>
 <select name="county" class="county">  
 <option value=""></option>
   <option value="Nyeri"> Nyeri</option>
@@ -53,15 +53,23 @@
 
 
 </select>
+<hr>
 <div class="input-group">
-<label>Password</label>
-<input type="password" name="password_1">
+<label>Gender <star style="color:red" > * </star></label>
+   <p> <input type="radio" name="gender"value="male"  >Male</radio></p>
+   <p> <input type="radio" name="gender"value="female" >Female</radio></p>
 </div>
+<hr>
+
 <div class="input-group">
-<label>Confirm password</label>
+<label>Password  <star style="color:red" > * </star></label>
+<input type="password" name="password_1">
+</div><hr>
+<div class="input-group">
+<label>Confirm password  <star style="color:red" > * </star></label>
 <input type="password" name="password_2">
 </div>
-
+<hr>
 <div class="input-group">
 <button type="submit" class="btn" name="reg_user">Register</button>
 </div>

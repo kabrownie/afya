@@ -17,17 +17,19 @@
 <!--register-->
     
         <div class="content">
+<star style="color:red" > * </star> required
+
 <h2>Login</h2>
 
 
 <form method="post" action="login.php">
 <?php include('../includes/errors.php') ?>
 <div class="input-group">
-<label>Username</label>
+<label>Username  <star style="color:red" > * </star></label>
 <input type="text" name="username" value="<?php echo $username; ?>">
 </div>
 <div class="input-group">
-<label>Password</label>
+<label>Password  <star style="color:red" > * </star></label>
 <input type="password" name="password">
 </div>
 <div class="input-group">

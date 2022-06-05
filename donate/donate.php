@@ -62,7 +62,7 @@ $sql = "SELECT * FROM users WHERE username='$id'";
 
 $result = $db->query($sql);
 
-$db->close();
+
 
       // LOOP TILL END OF DATA
                 while($rows=$result->fetch_assoc())

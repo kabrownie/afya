@@ -24,6 +24,7 @@ Please answer all of the following five questions so that we can advise if blood
 The current responses are not recorded.<br>
 These questions only apply if you want to register as a new account. If you are already registered please <a href="login.php">log in</a>
 
+
 <form method="post" action="presignup.php">
 <p>1. Are you between 16 - 65 years old? <br>
     <input type="radio" name="age"value="yes"  >yes</radio>

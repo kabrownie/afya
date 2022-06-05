@@ -62,7 +62,7 @@ $sql = "SELECT * FROM users WHERE username='$id'";
 
 $result = $db->query($sql);
 
-$db->close();
+
 
       // LOOP TILL END OF DATA
                 while($rows=$result->fetch_assoc())
@@ -70,13 +70,15 @@ $db->close();
              ?>
             <p> <strong>Full name : </strong><?php echo $rows['fullname'];?><br></p>
           <p>   <strong>Username : </strong><?php echo $rows['username'];?><br></p>
-          <p>   <strong>email : </strong><?php echo $rows['email'];?><br></p>
-          <p>   <strong>date of birth : </strong><?php echo $rows['dob'];?><br></p>
+          <p>   <strong>Email : </strong><?php echo $rows['email'];?><br></p>
+          <p>   <strong>Date of birth : </strong><?php echo $rows['dob'];?><br></p>
 
           <p>   <strong>County : </strong><?php echo $rows['county'];?><br></p>
-          <p>   <strong>bloodtype : </strong><?php echo $rows['bloodtype'];?><br></p>
-          <p>   <strong>weight : </strong><?php echo $rows['weight'];?><br></p>
-          <p>   <strong>height: </strong><?php echo $rows['height'];?><br></p>
+          <p>   <strong>Gender : </strong><?php echo $rows['gender'];?><br></p>
+
+          <p>   <strong>Eloodtype : </strong><?php echo $rows['bloodtype'];?><br></p>
+          <p>   <strong>Weight : </strong><?php echo $rows['weight'];?><br></p>
+          <p>   <strong>Weight: </strong><?php echo $rows['height'];?><br></p>
 
 
 <br>
