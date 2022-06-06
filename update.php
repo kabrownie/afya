@@ -8,8 +8,24 @@
 <link rel="stylesheet" type="text/css" href="../styles.css">
 </head>
 <body>
-        
-<?php include('includes/navbar.php') ?>
+<!-- navbar -->
+<div class="navbar">
+<div class="logo_div">
+
+<a href="main.php"><h1><img src= "/image/drop.png" >Afya Blood Donation System</h1></a>
+</div>
+<ul>
+  <li><a class="active" href="index.php">Home</a></li>
+  <li><a href="#where">Where to donate</a></li>
+  <li><a href="#why">Why donate</a></li>
+  <li><a href="#who">Who can donate</a></li>
+  <li><a href="#about">About us</a></li>
+  <li><a href="../registration/logout.php">logout</a></li>
+
+
+</ul>
+
+</div>
 <?php include('includes/mininav.php') ?>
 
   <?php
@@ -33,10 +49,6 @@ $row=mysqli_fetch_array($query);
           <div class="input-group">
             <label>Full name</label>
             <input type="text" name="fullname" value="<?php echo $row['fullname']; ?>" required />
-          </div>
-          <div class="input-group">
-            <label>Username</label>
-            <input type="text"  name="username" required value="<?php echo $row['username']; ?>" />
           </div>
 
           <div class="input-group">
@@ -81,7 +93,7 @@ $row=mysqli_fetch_array($query);
 
 
 <div class="input-group">
-<button type="submit" class="btn" name="update">Change password</button>
+<button type="submit" class="btn" name="update-pass">Change password</button>
 </div></div>
 </form>
       </html>
@@ -98,8 +110,7 @@ $row=mysqli_fetch_array($query);
 
 
  
-      $query = "UPDATE users SET fullname = '$fullname',
-                      username = '$username', email = '$email', county= '$county'
+      $query = "UPDATE users SET fullname = '$fullname', email = '$email', county= '$county'
                       WHERE username = '$id'";
                     $result = mysqli_query($db, $query)  or die(mysqli_error($db));
      ?>

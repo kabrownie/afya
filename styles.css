@@ -88,19 +88,20 @@
 
    
 .bodylink a{
-    background-color:red;
+    background-color:rgba(126, 126, 126, 0.348);
     padding: 10px;
-    color:wheat;
-    text-decoration: none;
-    border-radius: 5px 5px 5px 5px;
-    font-weight: bold;
+    color:rgb(0, 0, 0);
+    text-decoration: non
+    
 
 
 }
 .bodylink a:hover {
-    color:rgb(255, 255, 255);
+    color:rgb(255, 0, 0);
     text-decoration: none;
     border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 10px #000000;
+
 
 
 }
