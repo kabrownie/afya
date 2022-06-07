@@ -98,6 +98,7 @@ $result = $db->query($sql);
    <h3>
             Donor Centers
         </h3>
+        <h4>The following are The Available Donor Centers in Muranga</h4> <br>
 
         <?php
 $sql = "SELECT * FROM Hospitals WHERE countyId = 'C'";
@@ -116,7 +117,7 @@ $result = $db->query($sql);
 
 
 
-      <div class="hospitals"><a href='#'>  <p> <strong> <?php echo $rows['HospitalName']; ?></strong><br></p> </a>
+      <div class="hospitals"><a href='book.php'>  <p> <strong> <?php echo $rows['HospitalName']; ?></strong><br></p> </a>
       <?php echo $rows['address']; ?><br>
      TEL: 0<?php echo $rows['phone']; ?><br>
 
@@ -133,6 +134,7 @@ $result = $db->query($sql);
 </div>
 </div>
   
+<h4 style='text-align:center'>Dont know the direction to the center? Dont worry, The map below will help </h4> 
 
 <iframe src="https://www.google.com/maps/d/embed?mid=1euE8PzconXhsr0x9IgpnLgqruP9jSNg&ehbc=2E312F" width="100%" height="480"></iframe>
 <?php include('../includes/footer.php') ?>
