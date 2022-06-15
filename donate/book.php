@@ -40,7 +40,10 @@
     <?php endif ?>
     <p>One point of blood can save Three live</p>
 
-
+<?php
+$hospital = $_POST['varname'];
+echo $hospital;
+?>
      <div>
 
 

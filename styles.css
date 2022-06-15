@@ -205,6 +205,23 @@ footer {
                 border-radius: 5px;
                 }
 
+                .btn1 {
+                    padding: 10px;
+                    font-size: 15px;
+                    
+                    color: rgb(16, 46, 127);
+                    background:transparent;
+             border:thin solid;
+                    border-radius: 5px;
+                    font-weight: bold;
+                    font-size: 20px;
+                    cursor: pointer
+                    
+                    }
+                    .btn1:hover{
+                        color: black;
+                    }
+
   /* select */
   
       
@@ -303,6 +320,16 @@ background-repeat: no-repeat;
     grid-template-columns:repeat(2,1fr);
     gap: 2rem;
     padding: 2rem;
+}
+.hospitals a{
+    color:rgb(0, 0, 163)
+}
+.hospitals a:hover{
+    color:rgb(0, 0, 0)
+}
+.hospitals:hover{
+    background-color: rgba(0, 0, 0, 0.068);
+
 }
   .error {
     width: 92%;

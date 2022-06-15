@@ -101,14 +101,29 @@ $result = $db->query($sql);
 
                
 
-      <div class="hospitals"><a href='book.php'>  <p> <strong> <?php echo $rows['HospitalName']; ?></strong><br></p> </a>
+      <div class="hospitals">
+      <form method="post" action="book.php">
+
+   <input type="hidden" name="varname" value=" <?php echo $rows['HospitalName']; ?>"><p> <strong>
+<button type="submit" class="btn1"  > <?php echo $rows['HospitalName']; ?></button>
+</form>      
+</strong><br></p> 
+
+<!-- waah -->
+
+      
+
+      
       <?php echo $rows['address']; ?><br>
      TEL: 0<?php echo $rows['phone']; ?><br>
+
 
 
     </div><hr>
             <?php 
                 }
+              
+
              ?>
 
 
