@@ -31,38 +31,28 @@
 
 <div class="user">
 
-   <div class="left">
-        <h3>profile</h3>
-       <!-- logged in user information -->
-      <?php  if (isset($_SESSION['username'])) : ?>
-    <p><img class="profile" src= "/image/drop.png" ><br>
-    <strong>Hello  <?php echo $_SESSION['username']; ?></strong></p>
-    <?php endif ?>
-    <p>One point of blood can save Three live</p>
+ 
 
-<?php
+
+   <div class="book"> 
+<h1>
+    <p><img class="profile" src= "/image/drop.png" ></h1><h1> Afya Blood Donation</h1>
+
+<h2> Blood donation apointment booking for 
+   <?php
 $hospital = $_POST['varname'];
 echo $hospital;
-?>
-     <div>
 
+?></h2>
+<br>
 
-
-
-
-
-
-
-      </div>
-   </div>
-
-
-   <div class="left"> 
-
+orem400
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus aspernatur consectetur corporis ullam neque iusto ipsum minima architecto dolorum illum, quidem repudiandae labore excepturi asperiores velit nihil sit nobis. Exercitationem!
 
 </div>
 </div>
   
+<h4 style='text-align:center'>Dont know the direction to the center? Dont worry, The map below will help </h4> 
 
 <iframe src="https://www.google.com/maps/d/embed?mid=1euE8PzconXhsr0x9IgpnLgqruP9jSNg&ehbc=2E312F" width="100%" height="480"></iframe>
 <?php include('../includes/footer.php') ?>

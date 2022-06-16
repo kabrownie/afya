@@ -52,23 +52,15 @@ $result = $db->query($sql);
                 while($rows=$result->fetch_assoc())
                 {?>
                 <p>Find Donation centers near you :) </p>
+You can only view donors centers in your current county: <i> <b><?php echo $rows['county'];?><br ></b></i></p>
+<h4>
+ If you have relocated to another county, you can change your location in the <b>
+  <a href="../update.php" style='color:blue'> Update </a> </b> page</h4>
 
 
-<p>  Click your county <br>You currently stay at County : <strong> <?php echo $rows['county'];?><br ></strong></p>
                   <?php
                 }
              ?>
-
-
-
-<div class = bodylink style="min-width:200px; min-height:50px; margin: 5px;"><a href="Nyeri.php" >Nyeri</a></div>
-<div class = bodylink style="min-width:200px; min-height:50px; margin: 5px;"><a href="Kirinyaga.php" >Kirinyaga</a></div>
-<div class = bodylink style="min-width:200px; min-height:50px; margin: 5px;"><a href="Kiambu.php" >Kiambu</a></div>
-<div class = bodylink style="min-width:200px; min-height:50px; margin: 5px;"><a href="Nyandarua.php" >Nyandarua</a></div>
-<div class = bodylink style="min-width:200px; min-height:50px; margin: 5px;"><a href="Muranga.php" >Muranga</a></div>
-
-
-
 
 
 
@@ -77,24 +69,63 @@ $result = $db->query($sql);
 
 
    <div class="left"> 
-
+ <?php 
+   if(!isset($_GET['id']))
+   die('no info');
+   else{
+      $home = $_GET['id'];
+      echo $home;
+   }   ?>
    <h3>
             Donor Centers
         </h3>
-   <h4>     select county and available donor centers will display here :)</h4>
+   <h4>     The following are The Available Donor Centers in  <?php echo $home;?></h4>
 
-   <div class="hospitals"><a  href="Nyeri.php" >Nyeri </a></div><hr>
-   <div class="hospitals"><a  href="Kirinyaga.php" >Kirinyaga </a></div><hr>
-   <div class="hospitals"><a   href="Kiambu.php" >Kiambu </a></div><hr>
-   <div class="hospitals"><a href="Nyandarua.php" >Nyandarua </a></div><hr>
-   <div class="hospitals"><a  href="Muranga.php" >Muranga </a></div><hr>
-
-
-
-
-</div>
-</div>
   
+
+   <?php
+$sql = "SELECT * FROM Hospitals WHERE County = '$home'";
+
+$result = $db->query($sql);
+
+
+
+      // LOOP TILL END OF DATA
+                while($rows=$result->fetch_assoc())
+                {
+             ?>
+
+               
+
+      <div class="hospitals">
+      <form method="post" action="book.php">
+<!-- save variable to be used in another page -->
+   <input type="hidden" name="varname" value=" <?php echo $rows['HospitalName']; ?>"><p> <strong>
+<button type="submit" class="btn1"  > <?php echo $rows['HospitalName']; ?></button>
+</form>      
+</strong><br></p> 
+
+<!-- waah -->
+
+      
+
+      
+      <?php echo $rows['address']; ?><br>
+     TEL: 0<?php echo $rows['phone']; ?><br>
+
+
+
+    </div><hr>
+            <?php 
+                }
+              
+
+             ?>
+
+
+</div>
+</div>
+<h4 style='text-align:center'>Dont know the direction to the center? Dont worry, The map below will help </h4> 
 
 <iframe src="https://www.google.com/maps/d/embed?mid=1euE8PzconXhsr0x9IgpnLgqruP9jSNg&ehbc=2E312F" width="100%" height="480"></iframe>
 <?php include('../includes/footer.php') ?>

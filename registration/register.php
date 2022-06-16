@@ -48,7 +48,7 @@
   <option value="Nyeri"> Nyeri</option>
   <option value="Kiambu ">Kiambu</option>
   <option value="Kirinyaga">Kirinyaga</option>
-  <option value=" Muran'ga">Muran'ga</option>
+  <option value=" Murang'a">Muran'ga</option>
   <option value="Nyandarua"> Nyandarua</option>
 
 

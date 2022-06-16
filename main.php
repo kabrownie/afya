@@ -10,6 +10,8 @@
 <body>
 <!-- navbar -->
 <?php include('includes/navbarin.php')?>
+<?php include('includes/conn.php') ?>
+
 
 
 <!----->
@@ -63,13 +65,39 @@
             </li>
          </ul>
    </div>
+
    </div>
   
     <div class="right"> 
       <div> 
-        <a href="donate/donate.php" class="">
+
+
+
+   <!-- try -->
+   <?php
+$id =  $_SESSION['username'];
+$sql = "SELECT * FROM users WHERE username='$id'";
+
+$result = $db->query($sql);
+
+
+
+      // LOOP TILL END OF DATA
+                while($row=$result->fetch_assoc())
+               $home = $row['county'];
+                {?>
+
+        <a href="donate/donate.php?id=<?=$home?>" >
             <img src="image/donate.png"  height="150px"><br>
-            Donate now</a>
+            Donate now</a></a>
+                
+                  <?php
+                }
+             ?>
+
+             <!-- end try -->
+
+
        
      </div>
      <div>

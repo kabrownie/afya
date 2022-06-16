@@ -44,7 +44,7 @@ $row=mysqli_fetch_array($query);
   <option value="Nyeri"> Nyeri</option>
   <option value="Kiambu ">Kiambu</option>
   <option value="Kirinyaga">Kirinyaga</option>
-  <option value=" Muran'ga">Muran'ga</option>
+  <option value=" Muranga">Muran'ga</option>
   <option value="Nyandarua"> Nyandarua</option>
 
 
