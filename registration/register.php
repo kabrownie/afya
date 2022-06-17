@@ -25,30 +25,30 @@
 <div class="input-group">
 
 <label>Full names  <star style="color:red" > * </star></label>
-<input type="text" name="fullname" >
+<input type="text" name="fullname"  placeholder="fullname" >
 <div class="input-group">
 <hr>
 <div class="input-group">
 <label>User name <star style="color:red" > * </star></label>
-<input type="text" name="username" value="<?php echo $username; ?>">
+<input type="text" name="username"  placeholder="Username" value="<?php echo $username; ?>">
 </div>
 <hr>
 <div class="input-group">
 <label>Email <star style="color:red" > * </star></label>
-<input type="email" name="email" value="<?php echo $email; ?>">
+<input type="email" name="email"  placeholder="email" value="<?php echo $email; ?>">
 </div>
 <hr>
 <label>Date Of Birth <star style="color:red" > * </star></label>
-<input type="date" name="dob" >
+<input type="date" name="dob"   >
 </div><hr>
 <p> Select the county you reside in</p>
 <label>county <star style="color:red" > * </star></label>
-<select name="county" class="county">  
+<select name="county" class="county"  placeholder="county">  
 <option value=""></option>
   <option value="Nyeri"> Nyeri</option>
   <option value="Kiambu ">Kiambu</option>
   <option value="Kirinyaga">Kirinyaga</option>
-  <option value=" Murang'a">Muran'ga</option>
+  <option value="Muranga">Muran'ga</option>
   <option value="Nyandarua"> Nyandarua</option>
 
 
@@ -63,11 +63,11 @@
 
 <div class="input-group">
 <label>Password  <star style="color:red" > * </star></label>
-<input type="password" name="password_1">
+<input type="password" name="password_1"  placeholder="password">
 </div><hr>
 <div class="input-group">
 <label>Confirm password  <star style="color:red" > * </star></label>
-<input type="password" name="password_2">
+<input type="password" name="password_2"  placeholder="confirm password">
 </div>
 <hr>
 <div class="input-group">

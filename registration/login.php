@@ -26,11 +26,11 @@
 <?php include('../includes/errors.php') ?>
 <div class="input-group">
 <label>Username  <star style="color:red" > * </star></label>
-<input type="text" name="username" value="<?php echo $username; ?>">
+<input type="text" name="username"  placeholder="username" value="<?php echo $username; ?>">
 </div>
 <div class="input-group">
 <label>Password  <star style="color:red" > * </star></label>
-<input type="password" name="password">
+<input type="password" name="password"  placeholder="password">
 </div>
 <div class="input-group">
 <button type="submit" class="btn" name="login_user">Login </button>
