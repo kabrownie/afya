@@ -341,8 +341,7 @@ background-repeat: no-repeat;
 /* error */
   .error {
     width: 92%;
-    margin: 0px auto;
-    padding: 10px;
+    padding: 5px;
     color: #a94442;
     background: #f2dede;
     border-radius: 5px;

@@ -75,15 +75,15 @@ $row=mysqli_fetch_array($query);
   Please input your old password<br><hr>
             <label>Old password   <star style="color:red" > * </star></label>
             
-         <input type="password" required name="old_pass" placeholder="Old Password">
+         <input type="password" name="password" placeholder="Old Password">
 
          <label>New password   <star style="color:red" > * </star></label>
 
-         <input type="password" required name="new_pass" placeholder="New Password.">
+         <input type="password" name="password_1" placeholder="New Password.">
 
-         <label>RE type new password   <star style="color:red" > * </star></label>
+         <label>confirm new password   <star style="color:red" > * </star></label>
 
-         <input type="password" required name="re_pass" placeholder="Re-Type New Password">
+         <input type="password" name="password_2" placeholder="Re-Type New Password">
 
 
 <div class="input-group">
@@ -92,14 +92,13 @@ $row=mysqli_fetch_array($query);
 </form>
       </html>
 
-
       
       <?php
       if(isset($_POST['update'])){
-        $fullname = $_POST['fullname'];
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $county = $_POST['county'];
+        $fullname =  mysqli_real_escape_string($db, $_POST['fullname']);
+        $username =  mysqli_real_escape_string($db, $_POST['username']);
+        $email =  mysqli_real_escape_string($db, $_POST['email']);
+        $county =  mysqli_real_escape_string($db,$_POST['county']);
 
 
 
@@ -120,39 +119,36 @@ $row=mysqli_fetch_array($query);
 
 <!-- re pass -->
 <?php
- 
-if (isset($_POST['re_password']))
-{
 
-  session_start();
-  $id=$_SESSION['username'];
-$old_pass = $_POST['old_pass'];
-$new_pass = $_POST['new_pass'];
-$re_pass = $_POST['re_pass'];
-
-$password= $row['password'];
-$password = md5($password);
+if(isset($_POST['re_password'])){
 
 
+  $password =  mysqli_real_escape_string($db, $_POST['password']);  
+  $password_1 =  mysqli_real_escape_string($db, $_POST['password_1']);  
+  $password_2 = mysqli_real_escape_string($db, $_POST['password_2']); 
 
-$password_query =mysqli_query($db,"SELECT * FROM users where username='$id'");
 
-$password_row = mysqli_fetch_array($password_query);
-$password = $password_row['password'];
-if ($password == $old_pass)
-{
-if ($new_pass == $re_pass)
-{
-  $new_pass = md5($new_pass);
+   if (empty($password)) {  ?> <star style="color:red" > To reset password, your old password is required <br> </star> <?php ; }
+   if (empty($password_1 || $password_2)) {  ?> <star style="color:red" >Your new password cannot be empty <br> </star> <?php ; }
 
-$update_pwd = mysqli_query ($db,"update users set password='$new_pass' where id='$id'");
-echo "<script>alert('Update Sucessfully'); window.location='account.php'</script>";
+   if ($password_1 != $password_2) {  ?> <star style="color:red" >The confirm password does not match with your new password <br> </star> <?php ; }
+
+
+   $password = md5($password);
+   $query = "SELECT * FROM users WHERE username='$id' AND password='$password'";
+
+   $result=mysqli_query($db,$query);
+   $row=mysqli_fetch_array($result);
+   $active=$row['active'];
+   $count=mysqli_num_rows($result);
+   if($count==1) {
+    ?> <star style="color:red" >pass<br> </star> <?php ;
+
+
+    
+    
+   }
+
 }
-  else
-{
-echo "<script>alert('Your new and Retype Password is not match'); window.location='update.php'</script>";
-}
-}
-}
- 
+
 ?>
