@@ -75,15 +75,15 @@ $row=mysqli_fetch_array($query);
   Please input your old password<br><hr>
             <label>Old password   <star style="color:red" > * </star></label>
             
-         <input type="password" name="password" placeholder="Old Password">
+         <input type="password" required name="password" placeholder="Old Password">
 
          <label>New password   <star style="color:red" > * </star></label>
 
-         <input type="password" name="password_1" placeholder="New Password.">
+         <input type="password" required name="password_1" placeholder="New Password.">
 
          <label>confirm new password   <star style="color:red" > * </star></label>
 
-         <input type="password" name="password_2" placeholder="Re-Type New Password">
+         <input type="password" required name="password_2" placeholder="Re-Type New Password">
 
 
 <div class="input-group">
@@ -128,9 +128,6 @@ if(isset($_POST['re_password'])){
   $password_2 = mysqli_real_escape_string($db, $_POST['password_2']); 
 
 
-   if (empty($password)) {  ?> <star style="color:red" > To reset password, your old password is required <br> </star> <?php ; }
-   if (empty($password_1 || $password_2)) {  ?> <star style="color:red" >Your new password cannot be empty <br> </star> <?php ; }
-
    if ($password_1 != $password_2) {  ?> <star style="color:red" >The confirm password does not match with your new password <br> </star> <?php ; }
 
 
@@ -141,14 +138,31 @@ if(isset($_POST['re_password'])){
    $row=mysqli_fetch_array($result);
    $active=$row['active'];
    $count=mysqli_num_rows($result);
-   if($count==1) {
-    ?> <star style="color:red" >pass<br> </star> <?php ;
+   if($count==1 )  {
+    
+    $password_1 = md5($password_1);
 
 
+$query = "UPDATE users SET password = '$password_1'";
+                    $result = mysqli_query($db, $query)  or die(mysqli_error($db));
+     ?>
+                     <script type="text/javascript">
+            alert(" Profile Update Successfull.");
+            window.location = "account.php";
+        </script>
+
+        
+        <?php
+             }     
+             else if ($count!=1) {
+
+              ?> <star style="color:red" >make sure you have entered your correct old password <br> </star> <?php ;
+              
+             }   
     
     
    }
 
-}
+
 
 ?>
