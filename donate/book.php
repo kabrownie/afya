@@ -38,12 +38,15 @@
 <h1>
     <p><img class="profile" src= "/image/drop.png" ></h1><h1> Afya Blood Donation</h1>
 
-<h2> Blood donation apointment booking for 
-   <?php
+  
+<h2 style='text-align:center' > <?php
 $hospital = $_POST['varname'];
 echo $hospital;
 
 ?></h2>
+
+<h2 style='text-align:center' ><i> Blood donation apointment booking form </i> <br>
+</h2>
 <br>
 
 orem400
