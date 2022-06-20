@@ -30,7 +30,7 @@ $row=mysqli_fetch_array($query);
         
         <form method="post" action="#" >
           <div class="input-group">
-            <label>Full name</label>
+            <label>Full name</label> (real name)
             <input type="text" name="fullname" value="<?php echo $row['fullname']; ?>" required />
           </div>
 

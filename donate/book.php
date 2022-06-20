@@ -16,7 +16,9 @@
 <!----->
 
 <?php include('../includes/mininav.php') ?>
+
 <?php include('../includes/conn.php') ?>
+
 
 
 <?php
@@ -43,14 +45,40 @@
 $hospital = $_POST['varname'];
 echo $hospital;
 
+
+
 ?></h2>
 
 <h2 style='text-align:center' ><i> Blood donation apointment booking form </i> <br>
 </h2>
 <br>
+        <?php
+$id =  $_SESSION['username'];
+$sql = "SELECT * FROM users WHERE username='$id'";
 
+$result = $db->query($sql);
+
+
+
+      // LOOP TILL END OF DATA
+                while($rows=$result->fetch_assoc())
+                {
+             ?>
+          <p>   <strong>Username : </strong><?php echo $rows['username'];?><br></p>
+            <p> <strong>DONORS OFFICIAL NAME : </strong><?php echo $rows['fullname'];?><br></p>
+        <p><strong>HOSPITAL:</strong> <?php echo $hospital?></p>
+            <?php
+                }
+             ?>
 orem400
 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus aspernatur consectetur corporis ullam neque iusto ipsum minima architecto dolorum illum, quidem repudiandae labore excepturi asperiores velit nihil sit nobis. Exercitationem!
+
+
+
+      
+<?php echo $rows['address']; ?><br>
+     TEL: 0<?php echo $rows['phone']; ?><br>
+
 
 </div>
 </div>

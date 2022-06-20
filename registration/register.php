@@ -24,7 +24,7 @@
 <?php include('../includes/errors.php') ?>
 <div class="input-group">
 
-<label>Full names  <star style="color:red" > * </star></label>
+<label>Full names  <star style="color:red" > * </star>(real names)</label>
 <input type="text" name="fullname"  placeholder="fullname" >
 <div class="input-group">
 <hr>
