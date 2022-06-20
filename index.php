@@ -185,7 +185,7 @@
         <!-- <h5>
              is the process of donating platelets
          </h5> -->
-         <p> 
+         <p> t
              During a platelet donation, we will collect one, two, or three units of platelets. One of our medical technicians will recommend the number of units based on your weight, hemoglobin level and platelet count that day.
          </p>
          <h4>

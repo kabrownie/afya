@@ -27,9 +27,10 @@ These questions only apply if you want to register as a new account. If you are 
 
 <form method="post" action="presignup.php">
 <p>1. Are you between 16 - 65 years old? <br>
-    <input type="radio" name="age"value="yes"  >yes</radio>
+
+    <input type="radio" name="age"value="yes"   >yes</radio>
     <input type="radio" name="age"value="no" >No</radio><br>
-    Find more about <a href="#">why your age is important </a>
+    Find more about <a href="../faqs/who.php">why your age is important </a>
     
 </p>
 
@@ -37,7 +38,7 @@ These questions only apply if you want to register as a new account. If you are 
 <p>2. Do you currently weigh less than 50kg? <br>
     <input type="radio" name="kg"value="yes"  >yes</radio>
     <input type="radio" name="kg"value="no" >No</radio><br>
-    Find more about <a href="#">why your weight is important </a>
+    Find more about <a href="../faqs/who.php">why your weight is important </a>
 </p>
 <p>3. Have you ever donated blood before ? <br>
     <input type="radio" name="ever"value="yes"  >yes</radio>

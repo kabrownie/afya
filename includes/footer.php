@@ -15,12 +15,9 @@
                 <hr>
                 <ul>
                     <li>
-                        <a href="#">services</a>
-                    </li>
-                    <li> <a href="#">why donate</a></li> 
                     
                 </ul> 
-                <hr><small><p>Afya Bloold &copy; <?php echo date('Y'); ?></p></small>
+                <hr><small><p>Afya Bloold donation &copy; <?php echo date('Y'); ?></p></small>
             </div>
             <div class="foot">
                 <h3>Social Links</h3>

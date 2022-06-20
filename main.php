@@ -88,7 +88,7 @@ $result = $db->query($sql);
                 {?>
 
         <a href="donate/donate.php?id=<?=$home?>" >
-            <img src="image/donate.png"  height="150px"><br>
+            <img src="../image/donate.png"  height="150px"><br>
             Donate now</a></a>
                 
                   <?php
@@ -102,13 +102,13 @@ $result = $db->query($sql);
      </div>
      <div>
         <a href="#">
-        <img src="image/calender.jpg" height="150px"><br>
+        <img src="../image/calender.jpg" height="150px"><br>
             My Appointments</a> 
       
       </div>
      <div> 
      <a href="account.php">
-     <img src="image/account.png" height="150px"><br>
+     <img src="../image/account.png" height="150px"><br>
          Account
      </a>
      
