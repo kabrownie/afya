@@ -342,7 +342,17 @@ background-repeat: no-repeat;
     margin-right:15%;
     padding: 3%;
 
+    
   }
+
+.book input{
+    border:none;
+    text-decoration: underline;
+    font-size: 17px;
+    width: 50%;
+
+}
+
 /* error */
   .error {
     width: 92%;

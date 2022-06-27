@@ -23,6 +23,7 @@
 
 <?php
   session_start();
+  $errors = array();
 
 
 ?>
@@ -32,6 +33,8 @@
 
 
 <div class="user">
+
+<?php include('../includes/errors.php'); ?>
 
  
 
@@ -64,20 +67,41 @@ $result = $db->query($sql);
                 while($rows=$result->fetch_assoc())
                 {
              ?>
-          <p>   <strong>Username : </strong><?php echo $rows['username'];?><br></p>
-            <p> <strong>DONORS OFFICIAL NAME : </strong><?php echo $rows['fullname'];?><br></p>
-        <p><strong>HOSPITAL:</strong> <?php echo $hospital?></p>
+
+
+<form method="post" action="book.php">
+             
+          <p>   <strong>Username : </strong><input  type="text" name="username" readonly="readonly" value="<?php echo $rows['username'];?>"/><br></p>
+          
+            <p> <strong>Donor's Official Name : </strong><input  type="text" name="fullname" readonly="readonly" value="<?php echo $rows['fullname'];?>"/><br></p>
+        <p><strong>County:</strong><input  type="text" name="county" readonly="readonly" value=" <?php echo $rows['county'];?>"/></p>
+
+        <p><strong>Hospital:</strong><input  type="text" name="hospital" readonly="readonly" value=" <?php echo $hospital?>"/></p>
+        <p><strong>Your Contact Information<br>Email:</strong><input  type="text" name="email" readonly="readonly" value=" <?php echo $rows['email'];?>"/></p>
+
+
             <?php
                 }
              ?>
-orem400
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus aspernatur consectetur corporis ullam neque iusto ipsum minima architecto dolorum illum, quidem repudiandae labore excepturi asperiores velit nihil sit nobis. Exercitationem!
+             <br>
+
+            <h3  style='text-align:center'>Choose a date and time for your appointment</h3>
+           <p> <strong>appointment Date : </strong> <input type="date" required name="book_date"/>choose<br></p>
+           <p> <strong>appointment Time : </strong> <input type="time" required name="book_time"/>choose</p><br>
+           <input type="hidden" name ="status" value="Not donated"/>
+
+            
 
 
 
-      
-<?php echo $rows['address']; ?><br>
-     TEL: 0<?php echo $rows['phone']; ?><br>
+<button type="submit" class="btn" name="book">Book</button>
+             
+
+</form>        
+
+This information 
+<hr><small><p>Afya Bloold donation &copy; <?php echo date('Y'); ?></p></small>
+
 
 
 </div>
@@ -89,3 +113,39 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus aspernatur c
 <?php include('../includes/footer.php') ?>
 </body>
 </html>
+<!-- 
+ php -->
+<?php  
+
+// session_start();
+// // initializing variables
+// $username = "";
+// $email    = "";
+// $errors = array();
+
+//     include('../includes/conn.php'); 
+  
+
+//     if (isset($_POST['book'])) {
+//  $fullname =  mysqli_real_escape_string($db,$_POST['fullname']);  
+//  $username =  mysqli_real_escape_string($db, $_POST['username']);  
+//   $email =  mysqli_real_escape_string($db,$_POST['email']);  
+//  $hospital =  mysqli_real_escape_string($db,$_POST['hospital']);  
+//  $county =  mysqli_real_escape_string($db,$_POST['county']);
+//  $book_date =  mysqli_real_escape_string($db,$_POST['book_date']);
+
+//  $book_time =  mysqli_real_escape_string($db, $_POST['book_time']);  
+//  $status = mysqli_real_escape_string($db, $_POST['status']); 
+
+
+
+//  $query ="INSERT INTO booking (fullname, username, email, hospital, county, book_date, book_time, status )
+//  VALUES('$fullname','$username', '$email', '$hospital', '$county','$book_date','$book_time','$status')";
+//    mysqli_query($db, $query)  or die(mysqli_error($db));
+//       $_SESSION['username'] = $username;
+      
+//       $_SESSION['success'] = "appointment booked succesfully";
+// header('location: success.php');}
+
+    
+?>
