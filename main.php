@@ -101,7 +101,8 @@ $result = $db->query($sql);
        
      </div>
      <div>
-        <a href="#">
+        <a href="../donate/appointments.php">
+
         <img src="../image/calender.jpg" height="150px"><br>
             My Appointments</a> 
       

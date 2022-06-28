@@ -31,5 +31,5 @@ $result = $db->query($sql);
 
              <!-- end try -->
 
-  <a href="../appointment.php">My Appointments</a>
+  <a href="../donate/appointments.php">My Appointments</a>
 <a href="../account.php">Account</a></div>

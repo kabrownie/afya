@@ -46,8 +46,12 @@
   
 <h2 style='text-align:center' > <?php
 $hospital = $_POST['varname'];
-echo $hospital;
+echo $hospital ;
+?><br><?php
+ 
+?>
 
+<br><?php
 
 
 ?></h2>
@@ -90,9 +94,18 @@ $result = $db->query($sql);
            <p> <strong>appointment Time : </strong> <input type="time" required name="book_time"/>choose</p><br>
            <input type="hidden" name ="status" value="Not donated"/>
 
-            
+<?php
+$ran = uniqid();
+$wah = array("$id","$ran");
+$one = $wah[0].$wah[1];
 
 
+?>
+
+           <input type="hidden" name ="random" value="<?php echo $one;  ?>"/>
+
+
+<br>
 
 <button type="submit" class="btn" name="book">Book</button>
              
@@ -128,18 +141,19 @@ This information
 
  $book_time =  mysqli_real_escape_string($db, $_POST['book_time']);  
  $status = mysqli_real_escape_string($db, $_POST['status']); 
+ $random = mysqli_real_escape_string($db, $_POST['random']); 
 
 
 
  
- $query = "INSERT INTO booking (fullname, username, email, hospital, county, book_date, book_time, status)
- VALUE ('$fullname', '$username','$email','$hospital','$county','$book_date','$book_time','$status')";
+ $query = "INSERT INTO booking (fullname, username, email, hospital, county, book_date, book_time, status, random)
+ VALUE ('$fullname', '$username','$email','$hospital','$county','$book_date','$book_time','$status','$random')";
 
 $result = mysqli_query($db, $query)  or die(mysqli_error($db));
 ?>
 <script type="text/javascript">
-alert(" Profile Update Successfull.");
-window.location = "../main.php";
+alert("booking  Successfull.");
+window.location = "../donate/appointments.php";
 </script>
 
 
