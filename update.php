@@ -12,7 +12,7 @@
 <?php include('includes/mininav.php') ?>
 
   <?php
-  include ('includes/conn.php');
+  include ('../includes/conn.php');
   session_start();
 $id=$_SESSION['username'];
 $query=mysqli_query($db,"SELECT * FROM users where username='$id'");

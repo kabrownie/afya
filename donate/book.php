@@ -69,7 +69,7 @@ $result = $db->query($sql);
              ?>
 
 
-<form method="post" action="book.php">
+<form method="post" action="#">
              
           <p>   <strong>Username : </strong><input  type="text" name="username" readonly="readonly" value="<?php echo $rows['username'];?>"/><br></p>
           
@@ -77,7 +77,7 @@ $result = $db->query($sql);
         <p><strong>County:</strong><input  type="text" name="county" readonly="readonly" value=" <?php echo $rows['county'];?>"/></p>
 
         <p><strong>Hospital:</strong><input  type="text" name="hospital" readonly="readonly" value=" <?php echo $hospital?>"/></p>
-        <p><strong>Your Contact Information<br>Email:</strong><input  type="text" name="email" readonly="readonly" value=" <?php echo $rows['email'];?>"/></p>
+        <p><strong>Your Contact Information<br>Email:</strong><input  type="email" name="email" readonly="readonly" value=" <?php echo $rows['email'];?>"/></p>
 
 
             <?php
@@ -116,36 +116,35 @@ This information
 <!-- 
  php -->
 <?php  
-
-// session_start();
-// // initializing variables
-// $username = "";
-// $email    = "";
-// $errors = array();
-
-//     include('../includes/conn.php'); 
   
 
-//     if (isset($_POST['book'])) {
-//  $fullname =  mysqli_real_escape_string($db,$_POST['fullname']);  
-//  $username =  mysqli_real_escape_string($db, $_POST['username']);  
-//   $email =  mysqli_real_escape_string($db,$_POST['email']);  
-//  $hospital =  mysqli_real_escape_string($db,$_POST['hospital']);  
-//  $county =  mysqli_real_escape_string($db,$_POST['county']);
-//  $book_date =  mysqli_real_escape_string($db,$_POST['book_date']);
+    if (isset($_POST['book'])) {
+ $fullname =  mysqli_real_escape_string($db,$_POST['fullname']);  
+ $username =  mysqli_real_escape_string($db, $_POST['username']);  
+  $email =  mysqli_real_escape_string($db,$_POST['email']);  
+ $hospital =  mysqli_real_escape_string($db,$_POST['hospital']);  
+ $county =  mysqli_real_escape_string($db,$_POST['county']);
+ $book_date =  mysqli_real_escape_string($db,$_POST['book_date']);
 
-//  $book_time =  mysqli_real_escape_string($db, $_POST['book_time']);  
-//  $status = mysqli_real_escape_string($db, $_POST['status']); 
+ $book_time =  mysqli_real_escape_string($db, $_POST['book_time']);  
+ $status = mysqli_real_escape_string($db, $_POST['status']); 
 
 
 
-//  $query ="INSERT INTO booking (fullname, username, email, hospital, county, book_date, book_time, status )
-//  VALUES('$fullname','$username', '$email', '$hospital', '$county','$book_date','$book_time','$status')";
-//    mysqli_query($db, $query)  or die(mysqli_error($db));
-//       $_SESSION['username'] = $username;
-      
-//       $_SESSION['success'] = "appointment booked succesfully";
-// header('location: success.php');}
+ 
+ $query = "INSERT INTO booking (fullname, username, email, hospital, county, book_date, book_time, status)
+ VALUE ('$fullname', '$username','$email','$hospital','$county','$book_date','$book_time','$status')";
+
+$result = mysqli_query($db, $query)  or die(mysqli_error($db));
+?>
+<script type="text/javascript">
+alert(" Profile Update Successfull.");
+window.location = "../main.php";
+</script>
+
+
+<?php
+}        
 
     
 ?>
