@@ -90,15 +90,38 @@ $result = $db->query($sql);
              <br>
 
             <h3  style='text-align:center'>Choose a date and time for your appointment</h3>
-           <p> <strong>appointment Date : </strong> <input type="date" required name="book_date"/>choose<br></p>
-           <p> <strong>appointment Time : </strong> <input type="time" required name="book_time"/>choose</p><br>
+
+           <?php $kesho = date("Y-m-d", strtotime("+1 day"));//booking is aday after and only on weekdays ?>
+           <p> <strong>appointment Date : </strong> <input type="date"id="date1" required name="book_date" min="<?php echo "$kesho" ?>"/>choose<br></p>
+           <p> <strong>appointment Time : </strong> <input type="time" required name="book_time"  />choose</p><br>
            <input type="hidden" name ="status" value="Not donated"/>
+
+        
+        <script type="text/javascript">
+// min and max time
+
+        // <!-- disable weekends -->
+                const picker = document.getElementById('date1');
+picker.addEventListener('input', function(e){
+  var day = new Date(this.value).getUTCDay();
+  if([6,0].includes(day)){
+    e.preventDefault();
+    this.value = '';
+    alert('Weekends not allowed');
+  }
+});
+
+
+        </script>
+
+
+
 
 <?php
 $ran = uniqid();
 $wah = array("$id","$ran");
 $one = $wah[0].$wah[1];
-
+// random ids
 
 ?>
 

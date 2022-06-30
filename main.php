@@ -87,7 +87,7 @@ $result = $db->query($sql);
                $home = $row['county'];
                 {?>
 
-        <a href="donate/donate.php?id=<?=$home?>" >
+        <a href="../donate/donate.php?id=<?=$home?>" >
             <img src="../image/donate.png"  height="150px"><br>
             Donate now</a></a>
                 
