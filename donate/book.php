@@ -81,7 +81,7 @@ $result = $db->query($sql);
         <p><strong>County:</strong><input  type="text" name="county" readonly="readonly" value=" <?php echo $rows['county'];?>"/></p>
 
         <p><strong>Hospital:</strong><input  type="text" name="hospital" readonly="readonly" value=" <?php echo $hospital?>"/></p>
-        <p><strong>Your Contact Information<br>Email:</strong><input  type="email" name="email" readonly="readonly" value=" <?php echo $rows['email'];?>"/></p>
+        <p><strong>Your Contact Information<br>Email:</strong><input  type="email" name="email" readonly="readonly"  value=" <?php echo $rows['email'];?>"/></p>
 
 
             <?php
@@ -89,17 +89,19 @@ $result = $db->query($sql);
              ?>
              <br>
 
-            <h3  style='text-align:center'>Choose a date and time for your appointment</h3>
+            <h3  style='text-align:center'>Choose a date and time for your appointment <tiny style="font-size:70%">( mon - fri at 8:00am - 4:00pm)</tiny></h3>
 
            <?php $kesho = date("Y-m-d", strtotime("+1 day"));//booking is aday after and only on weekdays ?>
            <p> <strong>appointment Date : </strong> <input type="date"id="date1" required name="book_date" min="<?php echo "$kesho" ?>"/>choose<br></p>
-           <p> <strong>appointment Time : </strong> <input type="time" required name="book_time"  />choose</p><br>
+           <p> <strong>appointment Time : </strong> <input type="time" required onchange="show();" id="book_time" name="book_time" min="08:00" mmax="16:00" />choose</p><br>
            <input type="hidden" name ="status" value="Not donated"/>
 
         
         <script type="text/javascript">
 // min and max time
-
+function show(){
+  let t = document.getElementById
+}
         // <!-- disable weekends -->
                 const picker = document.getElementById('date1');
 picker.addEventListener('input', function(e){
@@ -107,7 +109,7 @@ picker.addEventListener('input', function(e){
   if([6,0].includes(day)){
     e.preventDefault();
     this.value = '';
-    alert('Weekends not allowed');
+    alert('Weekends are not available for booking');
   }
 });
 
