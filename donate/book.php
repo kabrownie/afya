@@ -94,7 +94,7 @@ $result = $db->query($sql);
            <?php $kesho = date("Y-m-d", strtotime("+1 day"));//booking is aday after and only on weekdays ?>
            <p> <strong>appointment Date : </strong> <input type="date"id="date1" required name="book_date" min="<?php echo "$kesho" ?>"/>choose<br></p>
            <p> <strong>appointment Time : </strong> <input type="time" required onchange="show();" id="book_time" name="book_time" min="08:00" mmax="16:00" />choose</p><br>
-           <input type="hidden" name ="status" value="Not donated"/>
+           <input type="hidden" name ="status" value="Pending"/>
 
         
         <script type="text/javascript">
