@@ -143,7 +143,7 @@ if(isset($_POST['re_password'])){
     $password_1 = md5($password_1);
 
 
-$query = "UPDATE users SET password = '$password_1'";
+$query = "UPDATE users SET password = '$password_1' WHERE username = '$id'";
                     $result = mysqli_query($db, $query)  or die(mysqli_error($db));
      ?>
                      <script type="text/javascript">
