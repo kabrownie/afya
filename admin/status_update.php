@@ -79,7 +79,7 @@ $row=mysqli_fetch_array($query);
                             <option value='Attended'>Attended</option>
                             </select>
         </td>
-   <input type="text" name="id" value=" <?php echo $random; ?>">
+   
 
             <td>     
 <button type="submit"  name="update" class="btn1"  >update</button>
@@ -102,13 +102,13 @@ $row=mysqli_fetch_array($query);
 <?php
       if(isset($_POST['update'])){
         $update_status =  mysqli_real_escape_string($db, $_POST['update_status']);
-      mysqli_real_escape_string($db, $_POST['id']);
+     $id = mysqli_real_escape_string($db, $_POST['id']);
 
        
 
 
  
-      $query = "UPDATE booking SET status = '$update_status' WHERE random = '$id'";
+      $query = "UPDATE booking SET status = '$update_status' WHERE random = '".$id."'";
                     $result = mysqli_query($db, $query)  or die(mysqli_error($db));
      ?>
                      <script type="text/javascript">
