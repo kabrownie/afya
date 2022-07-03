@@ -10,26 +10,8 @@
 </head>
 <body>
     holohjbkhfdsikjbcxz
+<br>
 
-
-    <br>
-    
-  
-<h2 style='text-align:center' > <?php
-$random = $_POST['random'];
-$fullname = $_POST['fullname'];
-$book_date = $_POST['book_date'];
-$book_time = $_POST['book_time'];
-$hospital = $_POST['hospital'];
-$county= $_POST['county'];
-$status= $_POST['status'];
-$username = $_POST['username'];
-
-
-echo 'This is Appointment number:  ';
-echo $random ;
-?><br><?php
- 
 
 ?></h2>
 
@@ -40,10 +22,37 @@ $id="";
 
 
 
-$id=$_SESSION['username'];
-$query=mysqli_query($db,"SELECT * FROM booking where random='$id'");
-$row=mysqli_fetch_array($query);
-?>
+
+
+if(!isset($_GET['id']))
+die('no info');
+else{
+   $random = $_GET['id'];
+   echo $random;
+}   ?>
+<h3>
+         Donor Centers
+     </h3>
+<h4>     Update the status for the following Appointment number: <?php echo $random;?></h4>
+
+
+
+
+<?php
+$sql = "SELECT * FROM booking WHERE random ='$random'";
+
+$result = $db->query($sql);
+
+
+
+
+
+      // LOOP TILL END OF DATA
+                while($rows=$result->fetch_assoc())
+                {
+             ?>
+
+
 
 
 
@@ -64,29 +73,28 @@ $row=mysqli_fetch_array($query);
         <tr>
         <td ><?php echo $random?></td>
 
-            <td ><?php echo $username?></td>
-            <td>  <?php echo $fullname?></td>
-            <td> <?php echo $book_date?>d</td>
-            <td> <?php echo $book_time?></td>
-            <td> <?php echo $hospital?></td>
-            <td> <?php echo $county?></td>
+        <td ><?php echo $rows['username'];?></td>
+            <td>  <?php echo $rows['fullname'];?></td>
+            <td> <?php echo $rows['book_date'];?></td>
+            <td> <?php echo $rows['book_time'];?></td>
+            <td> <?php echo $rows['hospital'];?></td>
+            <td> <?php echo $rows['county'];?></td>
             <td>
             <form method="post" action="#"> 
             <select name="update_status">
-            <option  value='<?php echo $status;?>'><?php echo $status;?></option>
+            <option  value='<?php echo $rows['status'];?>'><?php echo $rows['status'];?></option>
                             <option value='Missed'>Missed</option>
                             <option value='Cancelled'>Cancelled</option>
                             <option value='Attended'>Attended</option>
                             </select>
         </td>
    
-
+<input type="hidden" name="id" value="<?php echo $random?>"/>
             <td>     
 <button type="submit"  name="update" class="btn1"  >update</button>
 </form>      </td>
 
 
-            
            
         </tr>
 <br>
@@ -94,6 +102,13 @@ $row=mysqli_fetch_array($query);
 
     </table>
 
+     
+
+    <?php
+
+
+}
+?>
 
 </body>
 </html>
@@ -101,14 +116,11 @@ $row=mysqli_fetch_array($query);
 
 <?php
       if(isset($_POST['update'])){
+
         $update_status =  mysqli_real_escape_string($db, $_POST['update_status']);
-     $id = mysqli_real_escape_string($db, $_POST['id']);
+     
 
-       
-
-
- 
-      $query = "UPDATE booking SET status = '$update_status' WHERE random = '".$id."'";
+      $query = "UPDATE booking SET status = '$update_status' WHERE random='$random'";
                     $result = mysqli_query($db, $query)  or die(mysqli_error($db));
      ?>
                      <script type="text/javascript">
@@ -117,6 +129,6 @@ $row=mysqli_fetch_array($query);
         </script>
 
         
-        <?php
-             }        
+        <?php    
+            }
 ?>

@@ -65,21 +65,14 @@ $result = $db->query($sql);
             <td> <?php echo $rows['county'];?></td>
             <td> <?php echo $rows['status'];?></td>
             <td>      
-                <form method="post" action="status_update.php">
+             
 <!-- save variable to be used in another page -->
-   <input type="hidden" name="random" value=" <?php echo $rows['random']; ?>">
-   <input type="hidden" name="username" value=" <?php echo $rows['username']; ?>">
-   <input type="hidden" name="fullname" value=" <?php echo $rows['fullname']; ?>">
-   <input type="hidden" name="book_date" value=" <?php echo $rows['book_date']; ?>">
-   <input type="hidden" name="book_time" value=" <?php echo $rows['book_time']; ?>">
-   <input type="hidden" name="hospital" value=" <?php echo $rows['hospital']; ?>">
-   <input type="hidden" name="county" value=" <?php echo $rows['county']; ?>">
-   <input type="hidden" name="status" value=" <?php echo $rows['status']; ?>">
+  
 
+<button class="btn1"  ><a href="status_update.php?id=<?= $rows['random'];?>" >
+            Update</a></a></button>
 
-
-<button type="submit" class="btn1"  >update</button>
-</form>      </td>
+     </td>
 
 
             
