@@ -70,7 +70,7 @@ $result = $db->query($sql);
 <!-- save variable to be used in another page -->
   
 
-<button class="btn1"  ><a href="status_update.php?id=<?= $rows['random'];?>" >
+<button class="btn1"  ><a href="status_update.php?id=<?= $rows['random'];?>&u_id=<?= $rows['username'];?>" >
             Update</a></a></button>
 
      </td>
