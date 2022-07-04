@@ -36,7 +36,7 @@ $row=mysqli_fetch_array($query);
 
           <div class="input-group">
             <label>Email</label>
-            <input type="text"  name="email" required value="<?php echo $row['email']; ?>" />
+            <input type="email"  name="email" required value="<?php echo $row['email']; ?>" />
 
             <label>county</label>
 <select name="county" class="county">  

@@ -25,6 +25,19 @@
 
     hey
 
+    <table>
+        <tr>
+        <th>Username</th>
+        <th>Full Names</th>
+        <th>Date </th>
+        <th>Time </th>
+        <th>Hospital </th>
+        <th>County </th>
+        <th>Status </th>
+        <th>Update</th>
+        
+        </tr>
+
     <br>
 
 
@@ -43,18 +56,6 @@ $result = $db->query($sql);
                 {
              ?>
 
-          <table>
-        <tr>
-        <th>Username</th>
-        <th>Full Names</th>
-        <th>Date </th>
-        <th>Time </th>
-        <th>Hospital </th>
-        <th>County </th>
-        <th>Status </th>
-        <th>Update</th>
-        
-        </tr>
 
         <tr>
             <td ><?php echo $rows['username'];?></td>
@@ -81,7 +82,7 @@ $result = $db->query($sql);
 <br>
 <br>
 
-    </table>
+
 
 
 
@@ -91,7 +92,8 @@ $result = $db->query($sql);
             <?php
 
 
-                }
-             ?>
+                }  
+             ?> 
+              </table>
 </body>
 </html>

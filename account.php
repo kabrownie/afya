@@ -62,7 +62,7 @@ $result = $db->query($sql);
 
           <p>   <strong>Eloodtype : </strong><?php echo $rows['bloodtype'];?><br></p>
           <p>   <strong>Weight : </strong><?php echo $rows['weight'];?><br></p>
-          <p>   <strong>Weight: </strong><?php echo $rows['height'];?><br></p>
+          <p>   <strong>Height: </strong><?php echo $rows['height'];?><br></p>
 
 
 <br>
