@@ -13,8 +13,27 @@
 <br>
 
 
+<button type="submit"  name="update" class="btn1"  ><a href="admin_home.php"> Admin Homepage</a></button>
 ?></h2>
 
+<?php 
+ session_start();
+
+if (isset($_SESSION['success'])) : ?>
+      <div class="error success" >
+      <h3>
+          <?php
+          echo $_SESSION['success'];
+      
+        
+          unset($_SESSION['success']);
+          
+
+
+          ?>
+      </h3>
+      </div>
+  <?php endif ?>
 
 <?php include('../includes/conn.php') ;
 session_start();
@@ -138,15 +157,15 @@ $row=mysqli_fetch_array($query);
         <form method="post" action="#" >
           <div class="input-group">
             <label>weight</label>
-            <input type="text" placeholder="weight " name="fullname"required  value="<?php echo $row['weight']; ?>" />
+            <input type="number" step='0.01' placeholder="weight " name="weight"required  value="<?php echo $row['weight']; ?>" />
           </div>
 
           <div class="input-group">
             <label>height</label>
-            <input type="text" placeholder="height"  name="email" required value="<?php echo $row['height']; ?>" />
+            <input  type="number" step='0.01'placeholder="height"  name="height" required value="<?php echo $row['height']; ?>" />
 
             <label>Blood type</label>
-<select name="county" required placeholder="blood type" class="county">  
+<select name="bloodtype" required placeholder="blood type" class="county">  
 <option value="<?php echo $row['bloodtype']; ?>"><?php echo $row['bloodtype']; ?></option>
   <option value="A-positive (A+)"> A-positive (A+)</option>
   <option value="A-negative (A-)"> A-negative (A-)</option>
@@ -154,7 +173,7 @@ $row=mysqli_fetch_array($query);
   <option value="B-negative (B-)"> A-negative (B-)</option>
   <option value="AB-positive (AB+)">AB-positive</option>
   <option value="AB-negative (A-)"> A-negative (AB-)</option>
-  <option value="O-positive">O-positive</option>
+  <option value="O-positive (O+)">O-positive</option>
   <option value="O-negative (O-)"> O-negative (O-)</option>
 
 
@@ -184,11 +203,9 @@ $row=mysqli_fetch_array($query);
 
       $query = "UPDATE booking SET status = '$update_status' WHERE random='$random'";
                     $result = mysqli_query($db, $query)  or die(mysqli_error($db));
+                    $_SESSION['success'] = "status details update succesfull";
+                    header('location: #');
      ?>
-                     <script type="text/javascript">
-            alert(" status Update Successfull.");
-            window.location = "#";
-        </script>
 
         
         <?php    
@@ -205,14 +222,11 @@ $row=mysqli_fetch_array($query);
 
 
  
-      $query = "UPDATE users SET weight = '$weight', height = '$height', bloodtype= '$bloodtype'
-                      WHERE username = '$username'";
+      $query = "UPDATE users SET height = '$height', weight = '$weight', bloodtype= '$bloodtype' WHERE username = '$username'";
                     $result = mysqli_query($db, $query)  or die(mysqli_error($db));
+                    $_SESSION['success'] = "Profile details update succesfull";
+      header('location: #');
      ?>
-                     <script type="text/javascript">
-            alert(" Profile Update Successfull.");
-            window.location = "update_status.php";
-        </script>
 
         
         <?php
