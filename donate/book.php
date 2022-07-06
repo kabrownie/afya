@@ -136,8 +136,8 @@ $one = $wah[0].$wah[1];
              
 
 </form>        
+<br>
 
-This information 
 <hr><small><p>Afya Bloold donation &copy; <?php echo date('Y'); ?></p></small>
 
 

@@ -9,12 +9,21 @@
     <title>update status</title>
 </head>
 <body>
-    holohjbkhfdsikjbcxz
-<br>
+  
+<!-- navbar -->
+<div class="navbar">
+<div class="logo_div">
 
+<a href="../index.php"><h1><img src= "/image/drop.png" >Afya Blood Donation System</h1></a>
+</div>
+<ul><button type="submit"  name="update" class="btn1"  ><a href="admin_home.php"> Admin Homepage</a></button>
 
-<button type="submit"  name="update" class="btn1"  ><a href="admin_home.php"> Admin Homepage</a></button>
-?></h2>
+ 
+
+</ul>
+
+</div>
+
 
 <?php 
  session_start();
@@ -47,7 +56,7 @@ if(!isset($_GET['id']))
 die('no info');
 else{
    $random = $_GET['id'];
-   echo $random;
+
 } 
 ?>
 <br>
@@ -56,14 +65,14 @@ if(!isset($_GET['u_id']))
 die('no info');
 else{
    $username = $_GET['u_id'];
-   echo $username;
+
 }   ?>
 
 
 <h3>
-         Donor Centers
+        <?php echo $username?>
      </h3>
-<h4>     Update the status for the following Appointment number: <?php echo $random;?></h4>
+<h4>     Update the status  of  <?php echo $username?> for the Appointment number: <?php echo $random;?></h4>
 
 
 

@@ -11,6 +11,18 @@
 </head>
 <body>
 
+<!-- navbar -->
+<div class="navbar">
+<div class="logo_div">
+
+<a href="#"><h1><img src= "/image/drop.png" >Afya Blood Donation System</h1></a>
+</div>
+ 
+
+</ul>
+
+</div>
+
 
 <?php include('../includes/conn.php') ?>
 
@@ -23,7 +35,8 @@
 
 
 
-    hey
+<h1>Hello Admin</h1>
+<h2>the following are the appointments submitted by the users of Afya blood donation</h2>
 
     <table>
         <tr>
