@@ -1,4 +1,4 @@
 #####
 ## AFYA BLOOD DONATION
 
-This project is 
+The project Afya blood donation is a blood donor's tracking system,  
