@@ -23,7 +23,7 @@
         <div class="join">
         <p>The blood you donate give someone another chance at life.One day that someone<br> 
         may be a close relative,a friend, a loved one -or even you <br>
-        <?php include('includes/n.php') ?>
+    
 
         <div class = bodylink><a href="../registration/presignup.php" >Donate</a></div>
 

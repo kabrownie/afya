@@ -1,8 +1,4 @@
-
-
-
-
-<!-- Source code for handling registration and login -->
+<?php session_start(); ?>
 <?php include('checklogin.php') ?>
 <!DOCTYPE html>
 <html>

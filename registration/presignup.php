@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!-- Source code for handling registration and login -->
 
 <!-- Source code for handling registration and login -->
